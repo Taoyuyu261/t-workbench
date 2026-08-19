@@ -96,7 +96,6 @@
     $("loginUser").value = ""; $("loginPass").value = ""; $("loginErr").textContent = "";
     document.querySelector(".app").style.visibility = "hidden";
     showGate();
-    closeNav();
   };
   // 启动时：已登录直接进；未登录显示登录页并隐藏主界面
   if (isAuthed()) { hideGate(); }
@@ -107,6 +106,139 @@
   let eceFilter = "";
   $("newsSearch").oninput = (e) => { newsFilter = e.target.value.trim(); loadNews(); };
   $("eceSearch").oninput = (e) => { eceFilter = e.target.value.trim(); renderEce(); };
+
+  // ---------- 圆圈问号帮助（电脑悬浮 / 手机点击） ----------
+  function buildHelpPopup(h) {
+    return '<div class="help-pop">' +
+      '<p class="help-pop-title">' + esc(h.title) + '</p>' +
+      h.rows.map(function (r) {
+        return '<div class="help-row"><span class="help-k">' + esc(r[0]) + '</span><span class="help-v">' + esc(r[1]) + '</span></div>';
+      }).join("") + "</div>";
+  }
+  let helpOpen = null; // 当前点击打开的 help（手机端）
+  let hoverPop = null, popActive = false; // 电脑端 hover 弹层
+  function placePop(pop, el) {
+    var r = el.getBoundingClientRect();
+    pop.style.top = Math.min(window.innerHeight - 300, r.bottom + 8) + "px";
+    pop.style.left = Math.max(10, Math.min(window.innerWidth - 330, r.left - 140)) + "px";
+  }
+  function closeHover() {
+    if (hoverPop) { hoverPop.remove(); hoverPop = null; }
+    popActive = false;
+  }
+  document.querySelectorAll(".help").forEach(function (el) {
+    // 电脑端：鼠标悬浮显示
+    el.addEventListener("mouseenter", function () {
+      if (helpOpen || window.matchMedia("(hover: none)").matches) return;
+      var h = (window.HELP || {})[el.dataset.help];
+      if (!h) return;
+      closeHover();
+      hoverPop = document.createElement("div");
+      hoverPop.className = "help-pop fixed";
+      hoverPop.innerHTML = buildHelpPopup(h);
+      document.body.appendChild(hoverPop);
+      placePop(hoverPop, el);
+      hoverPop.addEventListener("mouseenter", function () { popActive = true; });
+      hoverPop.addEventListener("mouseleave", closeHover);
+    });
+    el.addEventListener("mouseleave", function () {
+      setTimeout(function () { if (!popActive) closeHover(); }, 180);
+    });
+    // 手机端 / 点击：切换显示
+    el.addEventListener("click", function (e) {
+      e.stopPropagation();
+      closeHover();
+      var key = el.dataset.help;
+      if (helpOpen === el) { closeHelp(); return; }
+      closeHelp();
+      var h = (window.HELP || {})[key];
+      if (!h) return;
+      var pop = document.createElement("div");
+      pop.className = "help-pop fixed";
+      pop.innerHTML = buildHelpPopup(h);
+      document.body.appendChild(pop);
+      placePop(pop, el);
+      helpOpen = el;
+      setTimeout(function () {
+        document.addEventListener("click", closeHelp, { once: true });
+      }, 0);
+    });
+  });
+  function closeHelp() {
+    document.querySelectorAll(".help-pop.fixed").forEach(function (p) { p.remove(); });
+    helpOpen = null;
+  }
+
+  // ---------- 设置 · 使用说明 + 更新日志 ----------
+  function renderSettings() {
+    var g = $("usageGuide");
+    if (g && !g.dataset.rendered) {
+      g.innerHTML = (window.GUIDE || []).map(function (grp) {
+        return '<div class="card guide-card"><p class="card-label">' + esc(grp.group) + '</p>' +
+          grp.rows.map(function (r) {
+            var st = r[0];
+            var cls = st.indexOf("未启用") > -1 ? "off" : (st.indexOf("进行中") > -1 ? "wip" : "on");
+            return '<div class="guide-row"><span class="st ' + cls + '">' + esc(st) + '</span><span class="guide-txt">' + esc(r[1]) + '</span></div>';
+          }).join("") + "</div>";
+      }).join("");
+      g.dataset.rendered = "1";
+    }
+    var c = $("changelog");
+    if (c && !c.dataset.rendered) {
+      c.innerHTML = (window.CHANGELOG || []).map(function (it) {
+        return '<div class="log-item">' +
+          '<p class="log-date">' + esc(it.date) + '</p>' +
+          '<p class="log-body">' + esc(it.items) + '</p>' +
+          '<p class="log-meta">影响范围：' + esc(it.scope) + '</p>' +
+          '<p class="log-meta need">' + esc(it.action) + '</p>' +
+          "</div>";
+      }).join("");
+      c.dataset.rendered = "1";
+    }
+  }
+
+  // ---------- 示例数据（首次打开预置，含 1 条逾期） ----------
+  var DEMO_KEY = "wb_demo_seeded";
+  function seedDemo() {
+    try {
+      if (localStorage.getItem(DEMO_KEY)) return;
+      var hasAgenda = localStorage.getItem("wb_agenda_all");
+      var hasPlans = localStorage.getItem("wb_plans_" + TODAY);
+      if (hasAgenda || hasPlans) { localStorage.setItem(DEMO_KEY, "1"); return; }
+      var yesterday = dateStr(addDays(new Date(), -1));
+      var tomorrow = dateStr(addDays(new Date(), 1));
+      var agendaDemo = [
+        { id: "demo-1", date: yesterday, label: "【示例·逾期】上周教研活动总结提交", done: false, createdAt: new Date().toISOString() },
+        { id: "demo-2", date: TODAY, label: "【示例】园务例会（14:30 · 会议室）", done: false, createdAt: new Date().toISOString() },
+        { id: "demo-3", date: TODAY, label: "【示例】审阅中班观察记录 3 份", done: true, createdAt: new Date().toISOString() },
+        { id: "demo-4", date: tomorrow, label: "【示例】家长开放日方案初稿", done: false, createdAt: new Date().toISOString() }
+      ];
+      localStorage.setItem("wb_agenda_all", JSON.stringify(agendaDemo));
+      localStorage.setItem("wb_plans_" + TODAY, JSON.stringify([
+        { time: "09:00", text: "【示例】晨间巡班：重点看小班适应情况", done: true },
+        { time: "14:00", text: "【示例】与大班教研组对齐主题活动安排", done: false }
+      ]));
+      localStorage.setItem(DEMO_KEY, "1");
+    } catch (e) { /* 存储不可用时跳过 */ }
+  }
+  seedDemo();
+  $("clearDemoBtn").onclick = function () {
+    if (!confirm("将删除所有带【示例】标记的条目（你自己录入的内容不受影响）。建议先导出备份。确定清空？")) return;
+    try {
+      var a = localStorage.getItem("wb_agenda_all");
+      if (a) {
+        var arr = JSON.parse(a).filter(function (x) { return (x.label || "").indexOf("【示例") === -1; });
+        localStorage.setItem("wb_agenda_all", JSON.stringify(arr));
+      }
+      var p = localStorage.getItem("wb_plans_" + TODAY);
+      if (p) {
+        var ps = JSON.parse(p).filter(function (x) { return (x.text || "").indexOf("【示例") === -1; });
+        localStorage.setItem("wb_plans_" + TODAY, JSON.stringify(ps));
+      }
+      toast("示例数据已清空");
+      renderAgenda(); renderPlans();
+    } catch (e) { toast("清空失败，请刷新重试", "warn"); }
+  };
 
   // ---------- 数据备份（导出 / 导入） ----------
   $("exportBtn").onclick = () => {
@@ -268,7 +400,12 @@
     // 根据当前 range 过滤
     let filtered = todayItems;
     $("agendaLabel").textContent = "今日待办";
-    if (currentRange === "week") {
+    if (currentRange === "today") {
+      // 逾期未完成项自动滚入"今天"（红色标注，不凭空消失）
+      const overdue = all.filter((x) => !x.done && x.date && x.date < TODAY);
+      filtered = overdue.concat(todayItems);
+      if (overdue.length) $("agendaLabel").textContent = "今日待办（含 " + overdue.length + " 条逾期）";
+    } else if (currentRange === "week") {
       const start = TODAY;
       const end = dateStr(addDays(TODAY, 7));
       filtered = all.filter((x) => x.date >= start && x.date <= end);
@@ -288,7 +425,8 @@
     }
     filtered.forEach((it, i) => {
       const li = document.createElement("li");
-      li.className = "agenda-row rise" + (it.done ? " done" : "");
+      const isOverdue = !it.done && it.date && it.date < TODAY;
+      li.className = "agenda-row rise" + (it.done ? " done" : "") + (isOverdue ? " overdue" : "");
       li.style.animationDelay = Math.min(i * 0.06, 0.4) + "s";
       const dStr = it.date;
       const showDate = dStr && dStr !== TODAY;
@@ -653,16 +791,13 @@
     if (name === "quotes") renderQuotes();
     if (name === "ece") renderEce();
     if (name === "news") loadNews();
-    closeNav();
+    if (name === "settings") renderSettings();
     window.scrollTo(0, 0);
   }
   document.querySelectorAll(".nav a").forEach((a) => a.onclick = (e) => { e.preventDefault(); showView(a.dataset.view); });
   document.querySelectorAll("[data-go]").forEach((b) => b.onclick = () => showView(b.dataset.go));
 
-  function openNav() { document.body.classList.add("nav-open"); }
-  function closeNav() { document.body.classList.remove("nav-open"); }
-  $("menuBtn").onclick = openNav;
-  $("backdrop").onclick = closeNav;
+  // 第九轮：侧栏改为所有屏幕常驻展开，不再需要 openNav/closeNav/menuBtn/backdrop
 
   // ---------- 启动 ----------
   $("todayLabel").textContent = TODAY + " · 星期" + weekday();

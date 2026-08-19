@@ -83,7 +83,7 @@
         <span class="ic">
           <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9c1-3 3-4 6-4v4a3 3 0 0 1-3 3"/><path d="M14 9c1-3 3-4 6-4v4a3 3 0 0 1-3 3"/></svg>
         </span>
-        <span class="lbl">领导金句</span>
+        <span class="lbl">每日一练</span>
       </a>
       <a href="#" data-view="ece">
         <span class="ic">
@@ -96,6 +96,12 @@
           <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 9h10M7 13h7M7 17h4"/></svg>
         </span>
         <span class="lbl">今日新闻</span>
+      </a>
+      <a href="#" data-view="settings">
+        <span class="ic">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+        </span>
+        <span class="lbl">设置·说明</span>
       </a>
     </nav>
 
@@ -159,7 +165,7 @@
           </svg>
           <p class="hello" id="greeting"></p>
           <h2 class="hero-title" id="agendaHero">把近几天的事，按节奏看一眼。</h2>
-          <p class="hero-date" id="todayBig"></p>
+          <p class="hero-date"><span id="todayBig"></span> <span class="help" data-help="agenda" tabindex="0" role="button" aria-label="帮助"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M9.5 9a2.5 2.5 0 0 1 4.3-1.4A2.5 2.5 0 0 1 14 12c-.7.6-2 1-2 2.2"/><circle cx="12" cy="17" r=".6" fill="currentColor"/></svg></span></p>
         </div>
 
         <!-- 进度小卡 -->
@@ -223,7 +229,7 @@
 
       <!-- 今日计划 -->
       <section data-view="plans" class="view hidden">
-        <h2 class="view-title">今日计划</h2>
+        <h2 class="view-title">今日计划<span class="help" data-help="plans" tabindex="0" role="button" aria-label="帮助"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M9.5 9a2.5 2.5 0 0 1 4.3-1.4A2.5 2.5 0 0 1 14 12c-.7.6-2 1-2 2.2"/><circle cx="12" cy="17" r=".6" fill="currentColor"/></svg></span></h2>
         <p class="view-sub">把今天的事，一件件安顿好；完成后，轻轻划掉。</p>
 
         <form id="planForm" class="plan-form">
@@ -253,7 +259,7 @@
 
       <!-- 锻炼记录（4板块） -->
       <section data-view="exercise" class="view hidden">
-        <h2 class="view-title">锻炼记录</h2>
+        <h2 class="view-title">锻炼记录<span class="help" data-help="exercise" tabindex="0" role="button" aria-label="帮助"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M9.5 9a2.5 2.5 0 0 1 4.3-1.4A2.5 2.5 0 0 1 14 12c-.7.6-2 1-2 2.2"/><circle cx="12" cy="17" r=".6" fill="currentColor"/></svg></span></h2>
         <p class="view-sub">把身体今天的模样，留一份云端。</p>
 
         <div class="ex-grid">
@@ -312,10 +318,10 @@
         </div>
       </section>
 
-      <!-- 领导金句 -->
+      <!-- 每日一练 -->
       <section data-view="quotes" class="view hidden">
         <div class="news-head">
-          <h2 class="view-title">领导金句</h2>
+          <h2 class="view-title">每日一练<span class="help" data-help="quotes" tabindex="0" role="button" aria-label="帮助"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M9.5 9a2.5 2.5 0 0 1 4.3-1.4A2.5 2.5 0 0 1 14 12c-.7.6-2 1-2 2.2"/><circle cx="12" cy="17" r=".6" fill="currentColor"/></svg></span></h2>
           <button id="quoteShuffle" class="cta ghost small">换一批</button>
         </div>
         <p class="view-sub">每天从全网搜索精选入库，言简意赅、各行各业通用；不合口味就换一批。</p>
@@ -324,7 +330,7 @@
 
       <!-- 幼教推文 -->
       <section data-view="ece" class="view hidden">
-        <h2 class="view-title">幼教推文</h2>
+        <h2 class="view-title">幼教推文<span class="help" data-help="ece" tabindex="0" role="button" aria-label="帮助"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M9.5 9a2.5 2.5 0 0 1 4.3-1.4A2.5 2.5 0 0 1 14 12c-.7.6-2 1-2 2.2"/><circle cx="12" cy="17" r=".6" fill="currentColor"/></svg></span></h2>
         <p class="view-sub">每日 5 条围绕学前教育（含 AI、融合教育、一日生活），公众号与小红书视角并取。</p>
         <div class="search-box">
           <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
@@ -336,7 +342,7 @@
       <!-- 今日新闻 -->
       <section data-view="news" class="view hidden">
         <div class="news-head">
-          <h2 class="view-title">今日新闻</h2>
+          <h2 class="view-title">今日新闻<span class="help" data-help="news" tabindex="0" role="button" aria-label="帮助"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M9.5 9a2.5 2.5 0 0 1 4.3-1.4A2.5 2.5 0 0 1 14 12c-.7.6-2 1-2 2.2"/><circle cx="12" cy="17" r=".6" fill="currentColor"/></svg></span></h2>
           <button id="newsRefresh" class="cta ghost small">刷新</button>
         </div>
         <div class="search-box">
@@ -345,6 +351,24 @@
         </div>
         <div class="tabs" id="newsTabs"></div>
         <div id="newsBody" class="news-body"></div>
+      </section>
+
+      <!-- 设置·说明 -->
+      <section data-view="settings" class="view hidden">
+        <h2 class="view-title">设置 · 使用说明<span class="help" data-help="settings" tabindex="0" role="button" aria-label="帮助"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M9.5 9a2.5 2.5 0 0 1 4.3-1.4A2.5 2.5 0 0 1 14 12c-.7.6-2 1-2 2.2"/><circle cx="12" cy="17" r=".6" fill="currentColor"/></svg></span></h2>
+        <p class="view-sub">工作台是什么、数据存在哪、哪些能力已启用哪些没有——这一页说实话。</p>
+        <div id="usageGuide" class="guide"></div>
+
+        <div class="card">
+          <p class="card-label">示例数据</p>
+          <p class="guide-p">首次打开时系统预置了几条示例（含一条逾期事项）方便你上手。看完后可以一键清掉，只留你自己的内容。</p>
+          <button type="button" id="clearDemoBtn" class="cta ghost small">清空示例数据</button>
+        </div>
+
+        <div class="card">
+          <p class="card-label">更新日志</p>
+          <div id="changelog"></div>
+        </div>
       </section>
     </div>
   </main>
