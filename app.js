@@ -218,6 +218,11 @@
         { time: "09:00", text: "【示例】晨间巡班：重点看小班适应情况", done: true },
         { time: "14:00", text: "【示例】与大班教研组对齐主题活动安排", done: false }
       ]));
+      // 临时记录示例（2 条）
+      localStorage.setItem("wb_scratch_" + TODAY, JSON.stringify([
+        { id: "demo-scratch-1", text: "【示例】明天下午前寄顺丰快递（取件码留意手机）", createdAt: new Date(Date.now() - 3600 * 1000).toISOString() },
+        { id: "demo-scratch-2", text: "【示例】周五前把园本课程总结初稿发给园长", createdAt: new Date(Date.now() - 3 * 3600 * 1000).toISOString() }
+      ]));
       localStorage.setItem(DEMO_KEY, "1");
     } catch (e) { /* 存储不可用时跳过 */ }
   }
@@ -707,7 +712,10 @@
   }
 
   // ---------- 新闻窗口（5 板块） ----------
-  const SECTION_NAMES = { ai: "AI", finance: "金融", domestic: "国内", world: "国际", health: "养生" };
+  const SECTION_NAMES = {
+    ai: "AI", finance: "金融", domestic: "国内", world: "国际", health: "养生",
+    tcm: "中医", psychology: "心理学", business: "商业思维", "civil-law": "民法常识", "finance-method": "理财方法"
+  };
   async function loadNews() {
     const tabs = $("newsTabs"); tabs.innerHTML = "";
     const body = $("newsBody"); body.innerHTML = '<p class="muted">加载中…</p>';
@@ -779,10 +787,85 @@
   }
   $("newsRefresh").onclick = async () => { feedsCache = null; await loadFeeds(); loadNews(); };
 
+  // ---------- 临时记录模块（数据 + 渲染 + 交互） ----------
+  function pad2(n) { return String(n).padStart(2, "0"); }
+  function fmtStamp(iso) {
+    const d = new Date(iso), now = new Date();
+    const isToday = d.toDateString() === now.toDateString();
+    const yes = new Date(now); yes.setDate(now.getDate() - 1);
+    const isYesterday = d.toDateString() === yes.toDateString();
+    const h = pad2(d.getHours()), m = pad2(d.getMinutes());
+    if (isToday) return "今天 " + h + ":" + m;
+    if (isYesterday) return "昨天 " + h + ":" + m;
+    return d.getFullYear() + "-" + pad2(d.getMonth() + 1) + "-" + pad2(d.getDate()) + " " + h + ":" + m;
+  }
+  async function getScratch() { return await load("scratch", []); }
+  async function saveScratch(arr) { await save("scratch", arr); }
+  function renderScratch() {
+    getScratch().then((arr) => {
+      const ul = $("scratchList"); if (!ul) return;
+      ul.innerHTML = "";
+      if (!arr.length) {
+        ul.innerHTML = '<li class="empty">还没有临时记录，输入框写一条试试。</li>';
+        return;
+      }
+      // 倒序（最新在前）
+      const sorted = arr.slice().sort((a, b) => (b.createdAt || "").localeCompare(a.createdAt || ""));
+      sorted.forEach((it) => {
+        const li = document.createElement("li");
+        li.className = "scratch-item rise";
+        li.innerHTML = '<div class="scratch-text">' + esc(it.text || "") + '</div>' +
+          '<div class="scratch-meta"><span class="scratch-time">' + esc(fmtStamp(it.createdAt)) + '</span>' +
+          '<button class="scratch-del" title="删除" aria-label="删除">✕</button></div>';
+        li.querySelector(".scratch-del").onclick = async () => {
+          const cur = await getScratch();
+          const idx = cur.findIndex((x) => x.id === it.id);
+          if (idx > -1) { cur.splice(idx, 1); await saveScratch(cur); renderScratch(); }
+        };
+        ul.appendChild(li);
+      });
+    });
+  }
+  $("scratchForm").onsubmit = async (e) => {
+    e.preventDefault();
+    const ta = $("scratchInput");
+    const text = ta.value.trim();
+    if (!text) return;
+    const cur = await getScratch();
+    cur.push({ id: "scratch-" + Date.now() + "-" + Math.random().toString(36).slice(2, 6), text, createdAt: new Date().toISOString() });
+    await saveScratch(cur);
+    ta.value = "";
+    renderScratch();
+  };
+  $("clearScratchBtn").onclick = async () => {
+    if (!confirm("将清空所有临时记录，无法恢复。确定？")) return;
+    await saveScratch([]);
+    renderScratch();
+    toast("临时记录已清空");
+  };
+
+  // ---------- 侧栏内置退出登录（移动端可见） ----------
+  $("navLogout").onclick = (e) => {
+    e.preventDefault();
+    if (confirm("确认退出登录？退出后再次进入需要输入密码。")) {
+      $("logoutBtn").click();
+      closeNav();
+    }
+  };
+
   // ---------- 导航 / 视图 ----------
+  // nav 标签拆字：每 2 字一行（"今日新闻" → "今日<br>新闻"），解决窄侧栏文字拥挤
+  document.querySelectorAll(".nav a .lbl").forEach((el) => {
+    const raw = (el.textContent || "").trim();
+    if (!raw) return;
+    // 已是 HTML（如临时记录视图里的）则跳过
+    if (el.innerHTML.includes("<br>")) return;
+    el.innerHTML = raw.split("").map((c, i) => i > 0 && i % 2 === 0 ? "<br>" + c : c).join("");
+  });
+
   function showView(name) {
     currentView = name;
-    document.querySelectorAll(".nav a").forEach((a) => a.classList.toggle("active", a.dataset.view === name));
+    document.querySelectorAll(".nav a:not(.nav-exit)").forEach((a) => a.classList.toggle("active", a.dataset.view === name));
     document.querySelectorAll(".view").forEach((v) => v.classList.toggle("hidden", v.dataset.view !== name));
     // 视图切换淡入（强制 reflow 以重放动画）
     const target = document.querySelector('.view[data-view="' + name + '"]');
@@ -797,10 +880,11 @@
     if (name === "quotes") renderQuotes();
     if (name === "ece") renderEce();
     if (name === "news") loadNews();
+    if (name === "scratch") renderScratch();
     if (name === "settings") renderSettings();
     window.scrollTo(0, 0);
   }
-  document.querySelectorAll(".nav a").forEach((a) => a.onclick = (e) => { e.preventDefault(); showView(a.dataset.view); });
+  document.querySelectorAll(".nav a:not(.nav-exit)").forEach((a) => a.onclick = (e) => { e.preventDefault(); showView(a.dataset.view); });
   document.querySelectorAll("[data-go]").forEach((b) => b.onclick = () => showView(b.dataset.go));
 
   // 第九轮：侧栏改为所有屏幕常驻展开，不再需要 openNav/closeNav/menuBtn/backdrop

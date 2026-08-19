@@ -3,85 +3,486 @@
   "updated": "2026-08-19T15:10:00+08:00",
   "sections": {
     "ai": [
-      { "title": "中国AI产业加速落地 生成式AI用户半年翻番达5.15亿", "link": "https://www.news.cn/tech/20251231/86f55a85002c4b28bcbfc65af4bbbd2f/c.html", "summary": "截至2025年6月我国生成式AI用户达5.15亿，较2024年底翻番，AI从家庭育儿到职场办公全面渗透。" },
-      { "title": "综述：如何监管人工智能 美国业界分歧加剧", "link": "https://www.news.cn/?q=node/25341", "summary": "新华网综述：AI监管路径之争白热化，美国业界对监管框架分歧明显，全球治理面临关键节点。" },
-      { "title": "DeepSeek创始人梁文锋入选《Nature》年度十大科学人物", "link": "https://aiera.com.cn/", "summary": "开源大模型R1以低成本开源方案震撼全球AI圈，被誉为'可触及的卓越'。" },
-      { "title": "物理AI：从WAIC展台奔赴真实产业'战场'", "link": "https://www.news.cn/?q=node/25341", "summary": "新华网科技观察：物理AI走出展台，深入制造、物流等真实产业场景，'具身智能'商业化提速。" },
-      { "title": "Google推出Gemini 3 Flash 默认模型升级", "link": "https://ts2.tech/en/ai-news-roundup-today-dec-18-2025-openais-750b-funding-talks-googles-gemini-3-flash-amazons-ai-shakeup-and-the-data-center-backlash/", "summary": "Gemini 3 Flash成为Gemini应用默认模型，并接入搜索AI Mode，主打'速度+推理'。" },
-      { "title": "OpenAI洽谈最高1000亿美元融资 估值约7500亿", "link": "https://ts2.tech/en/ai-news-roundup-today-dec-18-2025-openais-750b-funding-talks-googles-gemini-3-flash-amazons-ai-shakeup-and-the-data-center-backlash/", "summary": "算力需求重写融资规则，前沿模型开发已与工业级基础设施不可分割。" },
-      { "title": "Amazon重组AI部门：AGI、定制芯片、量子统一管理", "link": "https://ts2.tech/en/ai-news-roundup-today-dec-18-2025-openais-750b-funding-talks-googles-gemini-3-flash-amazons-ai-shakeup-and-the-data-center-backlash/", "summary": "AWS老兵Peter DeSantis统管模型+芯片+量子，AI负责人Prasad将离任。" },
-      { "title": "两场机器人盛会接踵而至：未来感背后是产业跃升", "link": "https://www.news.cn/?q=node/25341", "summary": "新华网产业观察：人形机器人商业化提速，头部企业订单密集落地，产业生态加速成型。" },
-      { "title": "告别'千脸一面' AI短剧要跳出模板化内卷", "link": "https://www.news.cn/?q=node/25341", "summary": "新华网科技频道：AI短剧爆发后陷入同质化，从业者探索差异化创作路径。" },
-      { "title": "微软Copilot销量远低预期 AI助手入口之争白热化", "link": "https://segmentfault.com/a/1190000047565901", "summary": "Gemini与Grok流量猛涨，AI助手入口竞争进入白热化，岗位发布量暴跌32%。" }
+      {
+        "title": "中国AI产业加速落地 生成式AI用户半年翻番达5.15亿",
+        "link": "https://www.news.cn/tech/20251231/86f55a85002c4b28bcbfc65af4bbbd2f/c.html",
+        "summary": "截至2025年6月我国生成式AI用户达5.15亿，较2024年底翻番，AI从家庭育儿到职场办公全面渗透。"
+      },
+      {
+        "title": "综述：如何监管人工智能 美国业界分歧加剧",
+        "link": "https://www.news.cn/?q=node/25341",
+        "summary": "新华网综述：AI监管路径之争白热化，美国业界对监管框架分歧明显，全球治理面临关键节点。"
+      },
+      {
+        "title": "DeepSeek创始人梁文锋入选《Nature》年度十大科学人物",
+        "link": "https://aiera.com.cn/",
+        "summary": "开源大模型R1以低成本开源方案震撼全球AI圈，被誉为'可触及的卓越'。"
+      },
+      {
+        "title": "物理AI：从WAIC展台奔赴真实产业'战场'",
+        "link": "https://www.news.cn/?q=node/25341",
+        "summary": "新华网科技观察：物理AI走出展台，深入制造、物流等真实产业场景，'具身智能'商业化提速。"
+      },
+      {
+        "title": "Google推出Gemini 3 Flash 默认模型升级",
+        "link": "https://ts2.tech/en/ai-news-roundup-today-dec-18-2025-openais-750b-funding-talks-googles-gemini-3-flash-amazons-ai-shakeup-and-the-data-center-backlash/",
+        "summary": "Gemini 3 Flash成为Gemini应用默认模型，并接入搜索AI Mode，主打'速度+推理'。"
+      },
+      {
+        "title": "OpenAI洽谈最高1000亿美元融资 估值约7500亿",
+        "link": "https://ts2.tech/en/ai-news-roundup-today-dec-18-2025-openais-750b-funding-talks-googles-gemini-3-flash-amazons-ai-shakeup-and-the-data-center-backlash/",
+        "summary": "算力需求重写融资规则，前沿模型开发已与工业级基础设施不可分割。"
+      },
+      {
+        "title": "Amazon重组AI部门：AGI、定制芯片、量子统一管理",
+        "link": "https://ts2.tech/en/ai-news-roundup-today-dec-18-2025-openais-750b-funding-talks-googles-gemini-3-flash-amazons-ai-shakeup-and-the-data-center-backlash/",
+        "summary": "AWS老兵Peter DeSantis统管模型+芯片+量子，AI负责人Prasad将离任。"
+      },
+      {
+        "title": "两场机器人盛会接踵而至：未来感背后是产业跃升",
+        "link": "https://www.news.cn/?q=node/25341",
+        "summary": "新华网产业观察：人形机器人商业化提速，头部企业订单密集落地，产业生态加速成型。"
+      },
+      {
+        "title": "告别'千脸一面' AI短剧要跳出模板化内卷",
+        "link": "https://www.news.cn/?q=node/25341",
+        "summary": "新华网科技频道：AI短剧爆发后陷入同质化，从业者探索差异化创作路径。"
+      },
+      {
+        "title": "微软Copilot销量远低预期 AI助手入口之争白热化",
+        "link": "https://segmentfault.com/a/1190000047565901",
+        "summary": "Gemini与Grok流量猛涨，AI助手入口竞争进入白热化，岗位发布量暴跌32%。"
+      }
     ],
     "finance": [
-      { "title": "A股午后继续下挫 科创50跌超6% 近5000只个股下跌", "link": "http://gu.qq.com/resources/shy/news/detail-v2/index.html#/?id=nesSN20260819090214b69744c2&s=b", "summary": "外患：美债收益率冲高、费城半导体重挫；内忧：获利盘踩踏+利好兑现。" },
-      { "title": "债市风暴来袭 美债30年收益率冲5.3% 创2007年来新高", "link": "https://stock.jrj.com.cn/2026/08/19131458171677.shtml", "summary": "日韩股市开盘大跌，韩国KOSPI一度跌超6%触发SIDECAR，A股三大指数低开低走。" },
-      { "title": "黑天鹅来了 全球科技股集体崩盘", "link": "https://www.163.com/dy/article/L4LFFUDI0556DC41.html", "summary": "美债长端收益率飙涨，'变相加息'压制全球科技股估值天花板。" },
-      { "title": "数字人民币业务运营机构扩容至30家", "link": "https://www.news.cn/?q=node/25341", "summary": "新华网金融频道：数字人民币运营机构名单再度扩容，生态版图持续扩大。" },
-      { "title": "国内汽油、柴油价格下调", "link": "https://www.news.cn?q=69924/", "summary": "新华网：本轮成品油调价窗口开启，国内汽柴油价格随国际油价回落下调。" },
-      { "title": "截至6月底全国基本养老保险参保人数达10.76亿人", "link": "https://www.news.cn?q=69924/", "summary": "人社部数据：社保覆盖面持续扩大，养老保障体系韧性增强。" },
-      { "title": "隐形收费终结 个贷新规正式生效", "link": "https://www.news.cn?q=69924/", "summary": "新华网网红记者工作室：个人贷款新规落地，明示年化利率、禁止隐性收费成为硬约束。" },
-      { "title": "频准激光上市首日涨488% 创注册制以来新股首日单签纪录", "link": "https://www.163.com/dy/article/L4LFFUDI0556DC41.html", "summary": "发行价186.88元，盘中最高冲至1300元，中一签最高赚55.6万。" },
-      { "title": "公积金条例大修 9月20日起施行", "link": "https://www.163.com/dy/article/L4LFFUDI0556DC41.html", "summary": "装修、物业费纳入提取范围，租房不再设收入门槛，定价权从央行交国务院。" },
-      { "title": "上半年24家A股公司赴港上市 募资总额逾1200亿港元", "link": "https://www.news.cn/?q=node/25341", "summary": "新华网上市公司频道：A股公司赴港上市潮持续，跨境资本双向流动加速。" }
+      {
+        "title": "A股午后继续下挫 科创50跌超6% 近5000只个股下跌",
+        "link": "http://gu.qq.com/resources/shy/news/detail-v2/index.html#/?id=nesSN20260819090214b69744c2&s=b",
+        "summary": "外患：美债收益率冲高、费城半导体重挫；内忧：获利盘踩踏+利好兑现。"
+      },
+      {
+        "title": "债市风暴来袭 美债30年收益率冲5.3% 创2007年来新高",
+        "link": "https://stock.jrj.com.cn/2026/08/19131458171677.shtml",
+        "summary": "日韩股市开盘大跌，韩国KOSPI一度跌超6%触发SIDECAR，A股三大指数低开低走。"
+      },
+      {
+        "title": "黑天鹅来了 全球科技股集体崩盘",
+        "link": "https://www.163.com/dy/article/L4LFFUDI0556DC41.html",
+        "summary": "美债长端收益率飙涨，'变相加息'压制全球科技股估值天花板。"
+      },
+      {
+        "title": "数字人民币业务运营机构扩容至30家",
+        "link": "https://www.news.cn/?q=node/25341",
+        "summary": "新华网金融频道：数字人民币运营机构名单再度扩容，生态版图持续扩大。"
+      },
+      {
+        "title": "国内汽油、柴油价格下调",
+        "link": "https://www.news.cn?q=69924/",
+        "summary": "新华网：本轮成品油调价窗口开启，国内汽柴油价格随国际油价回落下调。"
+      },
+      {
+        "title": "截至6月底全国基本养老保险参保人数达10.76亿人",
+        "link": "https://www.news.cn?q=69924/",
+        "summary": "人社部数据：社保覆盖面持续扩大，养老保障体系韧性增强。"
+      },
+      {
+        "title": "隐形收费终结 个贷新规正式生效",
+        "link": "https://www.news.cn?q=69924/",
+        "summary": "新华网网红记者工作室：个人贷款新规落地，明示年化利率、禁止隐性收费成为硬约束。"
+      },
+      {
+        "title": "频准激光上市首日涨488% 创注册制以来新股首日单签纪录",
+        "link": "https://www.163.com/dy/article/L4LFFUDI0556DC41.html",
+        "summary": "发行价186.88元，盘中最高冲至1300元，中一签最高赚55.6万。"
+      },
+      {
+        "title": "公积金条例大修 9月20日起施行",
+        "link": "https://www.163.com/dy/article/L4LFFUDI0556DC41.html",
+        "summary": "装修、物业费纳入提取范围，租房不再设收入门槛，定价权从央行交国务院。"
+      },
+      {
+        "title": "上半年24家A股公司赴港上市 募资总额逾1200亿港元",
+        "link": "https://www.news.cn/?q=node/25341",
+        "summary": "新华网上市公司频道：A股公司赴港上市潮持续，跨境资本双向流动加速。"
+      }
     ],
     "domestic": [
-      { "title": "朱镕基同志遗体在京火化 习近平等到八宝山送别", "link": "https://www.news.cn/politics/leaders/20260818/14709cee39904ce586d7a81af7d5eb2b/c.html", "summary": "胡锦涛送花圈表示哀悼。朱镕基同志因病于8月12日在京逝世，享年98岁，天安门等地下半旗志哀。" },
-      { "title": "习近平同厄瓜多尔总统诺沃亚举行会谈", "link": "https://new.qq.com/rain/a/20260819A02XNR00", "summary": "诺沃亚来华进行国事访问，两国元首就双边关系与务实合作深入交换意见。" },
-      { "title": "公积金制度迎来大调整 9月20日起施行", "link": "https://new.qq.com/rain/a/20260819A02XNR00", "summary": "装修、交物业费可提取公积金，租房提取不再设收入门槛，提取范围大幅放宽。" },
-      { "title": "9部门印发意见 激发下沉市场活力活跃县域消费", "link": "https://new.qq.com/rain/a/20260819A02XNR00", "summary": "18条具体举措部署：县域消费渠道升级、商业设施更新、每天超1亿件包裹进出农村。" },
-      { "title": "财政部再拨6000万元支持河南防汛救灾", "link": "https://new.qq.com/rain/a/20260819A02XNR00", "summary": "台风'白海豚'残余环流致河南持续强降雨，中央自然灾害救灾资金累计预拨1亿元。" },
-      { "title": "史上最强厄尔尼诺正在形成 预计11-12月达峰", "link": "https://new.qq.com/rain/a/20260819A02XNR00", "summary": "国家气候中心：赤道中东太平洋海温持续升高，大概率成为历史最强厄尔尼诺事件。" },
-      { "title": "杭州'酒局事件'通报：两人被刑事拘留", "link": "https://new.qq.com/rain/a/20260819A02XNR00", "summary": "公安机关对赵某峰、郁某栋依法刑拘，两人均已被免职，案件正在进一步侦办。" },
-      { "title": "青海海西州发生5.6级地震 暂无人员伤亡报告", "link": "https://www.news.cn/?q=node/25341", "summary": "震源深度10千米，震中周边人口稀少，新华网持续关注灾情动态。" },
-      { "title": "我国首次实现火箭陆地回收 朱雀三号发射成功", "link": "https://www.news.cn/?q=node/25341", "summary": "朱雀三号遥二运载火箭一子级成功着陆预定位置，商业航天可复用技术迈出关键一步。" },
-      { "title": "澳门公布第三个五年规划 明确八大发展目标", "link": "https://www.news.cn/?q=node/25341", "summary": "《澳门经济社会发展第三个五年规划(2026-2030)》设置35项主要指标，迈向高质量发展。" }
+      {
+        "title": "朱镕基同志遗体在京火化 习近平等到八宝山送别",
+        "link": "https://www.news.cn/politics/leaders/20260818/14709cee39904ce586d7a81af7d5eb2b/c.html",
+        "summary": "胡锦涛送花圈表示哀悼。朱镕基同志因病于8月12日在京逝世，享年98岁，天安门等地下半旗志哀。"
+      },
+      {
+        "title": "习近平同厄瓜多尔总统诺沃亚举行会谈",
+        "link": "https://new.qq.com/rain/a/20260819A02XNR00",
+        "summary": "诺沃亚来华进行国事访问，两国元首就双边关系与务实合作深入交换意见。"
+      },
+      {
+        "title": "公积金制度迎来大调整 9月20日起施行",
+        "link": "https://new.qq.com/rain/a/20260819A02XNR00",
+        "summary": "装修、交物业费可提取公积金，租房提取不再设收入门槛，提取范围大幅放宽。"
+      },
+      {
+        "title": "9部门印发意见 激发下沉市场活力活跃县域消费",
+        "link": "https://new.qq.com/rain/a/20260819A02XNR00",
+        "summary": "18条具体举措部署：县域消费渠道升级、商业设施更新、每天超1亿件包裹进出农村。"
+      },
+      {
+        "title": "财政部再拨6000万元支持河南防汛救灾",
+        "link": "https://new.qq.com/rain/a/20260819A02XNR00",
+        "summary": "台风'白海豚'残余环流致河南持续强降雨，中央自然灾害救灾资金累计预拨1亿元。"
+      },
+      {
+        "title": "史上最强厄尔尼诺正在形成 预计11-12月达峰",
+        "link": "https://new.qq.com/rain/a/20260819A02XNR00",
+        "summary": "国家气候中心：赤道中东太平洋海温持续升高，大概率成为历史最强厄尔尼诺事件。"
+      },
+      {
+        "title": "杭州'酒局事件'通报：两人被刑事拘留",
+        "link": "https://new.qq.com/rain/a/20260819A02XNR00",
+        "summary": "公安机关对赵某峰、郁某栋依法刑拘，两人均已被免职，案件正在进一步侦办。"
+      },
+      {
+        "title": "青海海西州发生5.6级地震 暂无人员伤亡报告",
+        "link": "https://www.news.cn/?q=node/25341",
+        "summary": "震源深度10千米，震中周边人口稀少，新华网持续关注灾情动态。"
+      },
+      {
+        "title": "我国首次实现火箭陆地回收 朱雀三号发射成功",
+        "link": "https://www.news.cn/?q=node/25341",
+        "summary": "朱雀三号遥二运载火箭一子级成功着陆预定位置，商业航天可复用技术迈出关键一步。"
+      },
+      {
+        "title": "澳门公布第三个五年规划 明确八大发展目标",
+        "link": "https://www.news.cn/?q=node/25341",
+        "summary": "《澳门经济社会发展第三个五年规划(2026-2030)》设置35项主要指标，迈向高质量发展。"
+      }
     ],
     "world": [
-      { "title": "美伊谈判又现反复：从'接近协议'到互要赔偿", "link": "https://news.youth.cn/gj/202608/t20260811_16809809.htm", "summary": "央视记者分析：技术距离越来越近，政治距离并未缩小——谁先让步成死结。" },
-      { "title": "'一页半'纸的美伊谅解备忘录 前景如何", "link": "https://www.news.cn/world/20260617/f18f55898f684f73b232a59f77891a69/c.html", "summary": "新华网国际看点连线专家：停火、海峡、核问题、制裁四大议题的前路博弈。" },
-      { "title": "特朗普指示谈判团队停止与伊朗接触", "link": "https://www.news.cn?q=69924/", "summary": "美媒称美方策略从'尽快重创'转向'逐步扼杀'，伊朗方面否认与美有任何会谈。" },
-      { "title": "伊朗：60天内霍尔木兹海峡过境船只免费通行", "link": "https://www.news.cn?q=69924/", "summary": "伊朗最高领袖持不同意见但批准备忘录安排，美军宣布解除对伊海上封锁。" },
-      { "title": "俄外交部：将对欧盟新一轮制裁采取强硬反制", "link": "https://www.news.cn?q=69924/", "summary": "拉夫罗夫表示俄军将密集打击乌军相关目标，俄乌互袭持续升级。" },
-      { "title": "扎波罗热核电站连遭日均50次以上袭击", "link": "https://www.news.cn?q=69924/", "summary": "俄方称核安全形势严峻，国际原子能机构持续呼吁在核电站周边设立安全区。" },
-      { "title": "防卫预算申请额创新高 日本加速'再军事化'", "link": "https://www.news.cn?q=69924/", "summary": "新华网国际看点：日本防卫经费申请刷新历史纪录，俄外交部警告地区局势趋紧。" },
-      { "title": "纽约时报广场发生枪击事件", "link": "https://www.news.cn?q=69924/", "summary": "新华网最新播报：纽约地标时报广场突发枪击，警方已封锁现场调查。" },
-      { "title": "韩美联合军演将提前6天结束 日程缩短过半", "link": "https://www.news.cn?q=69924/", "summary": "应特朗普要求军演提前收场，朝中社发文谴责并称将升级应对力量。" },
-      { "title": "特朗普宣布推迟三天对加拿大加征50%关税", "link": "https://www.news.cn?q=69924/", "summary": "新华网最新播报：美加贸易摩擦暂缓三日，双方谈判窗口仍存变数。" }
+      {
+        "title": "美伊谈判又现反复：从'接近协议'到互要赔偿",
+        "link": "https://news.youth.cn/gj/202608/t20260811_16809809.htm",
+        "summary": "央视记者分析：技术距离越来越近，政治距离并未缩小——谁先让步成死结。"
+      },
+      {
+        "title": "'一页半'纸的美伊谅解备忘录 前景如何",
+        "link": "https://www.news.cn/world/20260617/f18f55898f684f73b232a59f77891a69/c.html",
+        "summary": "新华网国际看点连线专家：停火、海峡、核问题、制裁四大议题的前路博弈。"
+      },
+      {
+        "title": "特朗普指示谈判团队停止与伊朗接触",
+        "link": "https://www.news.cn?q=69924/",
+        "summary": "美媒称美方策略从'尽快重创'转向'逐步扼杀'，伊朗方面否认与美有任何会谈。"
+      },
+      {
+        "title": "伊朗：60天内霍尔木兹海峡过境船只免费通行",
+        "link": "https://www.news.cn?q=69924/",
+        "summary": "伊朗最高领袖持不同意见但批准备忘录安排，美军宣布解除对伊海上封锁。"
+      },
+      {
+        "title": "俄外交部：将对欧盟新一轮制裁采取强硬反制",
+        "link": "https://www.news.cn?q=69924/",
+        "summary": "拉夫罗夫表示俄军将密集打击乌军相关目标，俄乌互袭持续升级。"
+      },
+      {
+        "title": "扎波罗热核电站连遭日均50次以上袭击",
+        "link": "https://www.news.cn?q=69924/",
+        "summary": "俄方称核安全形势严峻，国际原子能机构持续呼吁在核电站周边设立安全区。"
+      },
+      {
+        "title": "防卫预算申请额创新高 日本加速'再军事化'",
+        "link": "https://www.news.cn?q=69924/",
+        "summary": "新华网国际看点：日本防卫经费申请刷新历史纪录，俄外交部警告地区局势趋紧。"
+      },
+      {
+        "title": "纽约时报广场发生枪击事件",
+        "link": "https://www.news.cn?q=69924/",
+        "summary": "新华网最新播报：纽约地标时报广场突发枪击，警方已封锁现场调查。"
+      },
+      {
+        "title": "韩美联合军演将提前6天结束 日程缩短过半",
+        "link": "https://www.news.cn?q=69924/",
+        "summary": "应特朗普要求军演提前收场，朝中社发文谴责并称将升级应对力量。"
+      },
+      {
+        "title": "特朗普宣布推迟三天对加拿大加征50%关税",
+        "link": "https://www.news.cn?q=69924/",
+        "summary": "新华网最新播报：美加贸易摩擦暂缓三日，双方谈判窗口仍存变数。"
+      }
     ],
     "health": [
-      { "title": "立秋后这5件事容易伤身：盲目进补、剧烈运动、熬夜湿发睡觉", "link": "https://so.html5.qq.com/page/real/search_news?docid=70000021_1886a84eca599352", "summary": "立秋养生核心在'收'：收敛阳气、滋养阴液，中老年人进补选牛奶鸡蛋更温和。" },
-      { "title": "长夏时节怎么练？医师建议：适当运动、微汗即止", "link": "https://www.chinanews.com/jk/2026/08-18/10679660.shtml", "summary": "北京中医医院院长刘清泉：运动后神清气爽则量合适，疲乏心慌则要减。" },
-      { "title": "'贴秋膘'不必猛吃肉 进补因人而异", "link": "https://www.news.cn/?q=node/25341", "summary": "新华网热点追踪：盲目贴膘反伤脾胃，蛋白质与膳食纤维均衡才是正解。" },
-      { "title": "养生保健九常识：规律饮食8分饱、少喝奶茶、11点前入睡", "link": "https://m.youlai.cn/a/audio/60A77AmhEOU.html", "summary": "淮安市妇幼保健院中医科副主任医师马希贵总结的日常养生要点。" },
-      { "title": "小龙虾配啤酒会诱发痛风吗？怎样吃才更健康", "link": "https://www.news.cn/?q=node/25341", "summary": "新华网健康频道：夏季宵夜'顶流'组合的风险与科学食用指南。" },
-      { "title": "立秋养生：平缓运动、早晚为宜，八段锦是理想选择", "link": "https://so.html5.qq.com/page/real/search_news?docid=70000021_1886a84eca599352", "summary": "选早晚凉爽时段，每次约30分钟，带温水或糖盐水少量多次补充。" },
-      { "title": "睡前泡脚散暑热助睡眠 洗完头务必彻底吹干", "link": "https://so.html5.qq.com/page/real/search_news?docid=70000021_1886a84eca599352", "summary": "湿发睡觉寒气钻头皮，老年人易引起血压波动，风险不小。" },
-      { "title": "空调风扇别对人直吹 护好颈肩防受寒落枕", "link": "https://so.html5.qq.com/page/real/search_news?docid=70000021_1886a84eca599352", "summary": "立秋后体表防护力变弱，备薄丝巾护住脖子肩颈，挡住冷风侵袭。" },
-      { "title": "健康我来说：中医眼中的干眼症", "link": "https://www.news.cn/?q=node/25341", "summary": "新华网新华健康：屏幕时代干眼高发，中医调理讲究肝肾同养、局部润养结合。" },
-      { "title": "'散瞳验光'真相：家长最该知道的儿童视力检查常识", "link": "https://www.news.cn/?q=node/25341", "summary": "新华网新华健康：散瞳不伤眼，反而是儿童近视鉴别的重要检查手段。" }
+      {
+        "title": "立秋后这5件事容易伤身：盲目进补、剧烈运动、熬夜湿发睡觉",
+        "link": "https://so.html5.qq.com/page/real/search_news?docid=70000021_1886a84eca599352",
+        "summary": "立秋养生核心在'收'：收敛阳气、滋养阴液，中老年人进补选牛奶鸡蛋更温和。"
+      },
+      {
+        "title": "长夏时节怎么练？医师建议：适当运动、微汗即止",
+        "link": "https://www.chinanews.com/jk/2026/08-18/10679660.shtml",
+        "summary": "北京中医医院院长刘清泉：运动后神清气爽则量合适，疲乏心慌则要减。"
+      },
+      {
+        "title": "'贴秋膘'不必猛吃肉 进补因人而异",
+        "link": "https://www.news.cn/?q=node/25341",
+        "summary": "新华网热点追踪：盲目贴膘反伤脾胃，蛋白质与膳食纤维均衡才是正解。"
+      },
+      {
+        "title": "养生保健九常识：规律饮食8分饱、少喝奶茶、11点前入睡",
+        "link": "https://m.youlai.cn/a/audio/60A77AmhEOU.html",
+        "summary": "淮安市妇幼保健院中医科副主任医师马希贵总结的日常养生要点。"
+      },
+      {
+        "title": "小龙虾配啤酒会诱发痛风吗？怎样吃才更健康",
+        "link": "https://www.news.cn/?q=node/25341",
+        "summary": "新华网健康频道：夏季宵夜'顶流'组合的风险与科学食用指南。"
+      },
+      {
+        "title": "立秋养生：平缓运动、早晚为宜，八段锦是理想选择",
+        "link": "https://so.html5.qq.com/page/real/search_news?docid=70000021_1886a84eca599352",
+        "summary": "选早晚凉爽时段，每次约30分钟，带温水或糖盐水少量多次补充。"
+      },
+      {
+        "title": "睡前泡脚散暑热助睡眠 洗完头务必彻底吹干",
+        "link": "https://so.html5.qq.com/page/real/search_news?docid=70000021_1886a84eca599352",
+        "summary": "湿发睡觉寒气钻头皮，老年人易引起血压波动，风险不小。"
+      },
+      {
+        "title": "空调风扇别对人直吹 护好颈肩防受寒落枕",
+        "link": "https://so.html5.qq.com/page/real/search_news?docid=70000021_1886a84eca599352",
+        "summary": "立秋后体表防护力变弱，备薄丝巾护住脖子肩颈，挡住冷风侵袭。"
+      },
+      {
+        "title": "健康我来说：中医眼中的干眼症",
+        "link": "https://www.news.cn/?q=node/25341",
+        "summary": "新华网新华健康：屏幕时代干眼高发，中医调理讲究肝肾同养、局部润养结合。"
+      },
+      {
+        "title": "'散瞳验光'真相：家长最该知道的儿童视力检查常识",
+        "link": "https://www.news.cn/?q=node/25341",
+        "summary": "新华网新华健康：散瞳不伤眼，反而是儿童近视鉴别的重要检查手段。"
+      }
     ],
     "quotes": [
-      { "text": "要发扬钉钉子精神，一锤接着一锤敲，一件接着一件干，干一件成一件。", "scene": "实干" },
-      { "text": "事情要一件接着一件办，活要一项接着一项干，劲要一鼓接着一鼓使。", "scene": "实干" },
-      { "text": "道阻且长，行则将至；行而不辍，未来可期。", "scene": "坚持" },
-      { "text": "以踏石留印、抓铁有痕的劲头，雷厉风行抓落实，马上就办求实效。", "scene": "落实" },
-      { "text": "一天当作三天干，一年干成三年事。", "scene": "紧迫" },
-      { "text": "敢于啃硬骨头，敢于涉险滩，不能遇到困难就打退堂鼓。", "scene": "攻坚" },
-      { "text": "撸起袖子加油干，甩开膀子往前冲，以实干实效赢得实绩。", "scene": "实干" },
-      { "text": "做难事，必有所得；行远路，终有回响。", "scene": "成长" },
-      { "text": "人心齐，泰山移；上下同欲，所向披靡。", "scene": "团队" },
-      { "text": "聚是一团火，散是满天星。", "scene": "团队" },
-      { "text": "一个人可以走得很快，一群人才能走得更远。", "scene": "团队" },
-      { "text": "格局决定结局，态度决定高度。", "scene": "格局" }
+      {
+        "text": "要发扬钉钉子精神，一锤接着一锤敲，一件接着一件干，干一件成一件。",
+        "scene": "实干"
+      },
+      {
+        "text": "事情要一件接着一件办，活要一项接着一项干，劲要一鼓接着一鼓使。",
+        "scene": "实干"
+      },
+      {
+        "text": "道阻且长，行则将至；行而不辍，未来可期。",
+        "scene": "坚持"
+      },
+      {
+        "text": "以踏石留印、抓铁有痕的劲头，雷厉风行抓落实，马上就办求实效。",
+        "scene": "落实"
+      },
+      {
+        "text": "一天当作三天干，一年干成三年事。",
+        "scene": "紧迫"
+      },
+      {
+        "text": "敢于啃硬骨头，敢于涉险滩，不能遇到困难就打退堂鼓。",
+        "scene": "攻坚"
+      },
+      {
+        "text": "撸起袖子加油干，甩开膀子往前冲，以实干实效赢得实绩。",
+        "scene": "实干"
+      },
+      {
+        "text": "做难事，必有所得；行远路，终有回响。",
+        "scene": "成长"
+      },
+      {
+        "text": "人心齐，泰山移；上下同欲，所向披靡。",
+        "scene": "团队"
+      },
+      {
+        "text": "聚是一团火，散是满天星。",
+        "scene": "团队"
+      },
+      {
+        "text": "一个人可以走得很快，一群人才能走得更远。",
+        "scene": "团队"
+      },
+      {
+        "text": "格局决定结局，态度决定高度。",
+        "scene": "格局"
+      }
     ],
     "ece": [
-      { "title": "从试点到日常：一所幼儿园如何让AI融入每一天", "link": "https://new.qq.com/rain/a/20260427A07CK900", "summary": "成都十三幼枫叶分园实录：绘本机器人自动记录阅读数据、围棋AI自适应匹配棋力、大模型幼师助手几分钟理清教案——'技术不是替代人，而是帮人省下时间去做更有温度的事'。", "tag": "AI·学前", "source": "央广网·腾讯新闻" },
-      { "title": "AI赋能，促进幼儿全面发展", "link": "https://new.qq.com/rain/a/20250119A02F5O00", "summary": "宁波望童幼儿园引入AI平台：幼儿画像让'凭经验'变'看数据'，周报月报促进家园共育，'33件事'成长档案弥补科技温情缺失。", "tag": "AI·评价", "source": "腾讯新闻·学前教育" },
-      { "title": "看滨江幼儿园如何把AI变成'教育魔法'", "link": "https://so.html5.qq.com/page/real/search_news?docid=70000021_4436a04556688052", "summary": "钱塘山水幼儿园用即梦AI把番茄生长变萌趣动画化解挑食；长河幼儿园研发百草园AI智能体，图像识别+智能提问陪伴'观察—提问—记录—对比—表达'深度探究。", "tag": "AI·食育自然", "source": "滨江教育发布" },
-      { "title": "过渡环节的小技巧：把'等一下'变成'学一学'", "link": "https://www.hoing.net/newabout/92052.html", "summary": "晨间入园用应答歌开启一天，餐前手指谣，午睡前绘本古诗音频；音乐指令贯穿一日，让'等一下'变成'学一学'，班里 80% 矛盾迎刃而解。", "tag": "一日生活", "source": "幼教论坛·hoing" },
-      { "title": "生成式 AI 赋能幼儿园的三个真实落地场景", "link": "https://www.ictdedu.cn/sknews/jcjyck/neirong/n20260707_89904.shtml", "summary": "课程资源开发、幼儿个性化学习、教师活动设计——基于 20 项全国典型案例，提炼政策助推、主体协同、课题驱动、技术融合四模式与边界。", "tag": "AI·教学", "source": "中国 ICT 教育" }
+      {
+        "title": "从试点到日常：一所幼儿园如何让AI融入每一天",
+        "link": "https://new.qq.com/rain/a/20260427A07CK900",
+        "summary": "成都十三幼枫叶分园实录：绘本机器人自动记录阅读数据、围棋AI自适应匹配棋力、大模型幼师助手几分钟理清教案——'技术不是替代人，而是帮人省下时间去做更有温度的事'。",
+        "tag": "AI·学前",
+        "source": "央广网·腾讯新闻"
+      },
+      {
+        "title": "AI赋能，促进幼儿全面发展",
+        "link": "https://new.qq.com/rain/a/20250119A02F5O00",
+        "summary": "宁波望童幼儿园引入AI平台：幼儿画像让'凭经验'变'看数据'，周报月报促进家园共育，'33件事'成长档案弥补科技温情缺失。",
+        "tag": "AI·评价",
+        "source": "腾讯新闻·学前教育"
+      },
+      {
+        "title": "看滨江幼儿园如何把AI变成'教育魔法'",
+        "link": "https://so.html5.qq.com/page/real/search_news?docid=70000021_4436a04556688052",
+        "summary": "钱塘山水幼儿园用即梦AI把番茄生长变萌趣动画化解挑食；长河幼儿园研发百草园AI智能体，图像识别+智能提问陪伴'观察—提问—记录—对比—表达'深度探究。",
+        "tag": "AI·食育自然",
+        "source": "滨江教育发布"
+      },
+      {
+        "title": "过渡环节的小技巧：把'等一下'变成'学一学'",
+        "link": "https://www.hoing.net/newabout/92052.html",
+        "summary": "晨间入园用应答歌开启一天，餐前手指谣，午睡前绘本古诗音频；音乐指令贯穿一日，让'等一下'变成'学一学'，班里 80% 矛盾迎刃而解。",
+        "tag": "一日生活",
+        "source": "幼教论坛·hoing"
+      },
+      {
+        "title": "生成式 AI 赋能幼儿园的三个真实落地场景",
+        "link": "https://www.ictdedu.cn/sknews/jcjyck/neirong/n20260707_89904.shtml",
+        "summary": "课程资源开发、幼儿个性化学习、教师活动设计——基于 20 项全国典型案例，提炼政策助推、主体协同、课题驱动、技术融合四模式与边界。",
+        "tag": "AI·教学",
+        "source": "中国 ICT 教育"
+      }
+    ],
+    "tcm": [
+      {
+        "title": "三伏天晒背补\"阳气\" 中医提醒3类人千万别晒",
+        "link": "https://www.jksb.com.cn/index.php?a=show&catid=788&id=256983&m=wap",
+        "summary": "《生命时报》综合专家观点：晒背是\"温和补阳\"，不是\"烈日暴晒\"，3类人禁忌、时长控制、补水等要点一次说清。"
+      },
+      {
+        "title": "国医大师林毅教授支招冬季养生",
+        "link": "https://new.qq.com/rain/a/20250122A02YRT00",
+        "summary": "冬宜护肾温养潜藏：沐足+温灸（关元、气海、肾俞等穴位），调节情志+药食同源进补（当归生姜羊肉汤）。"
+      },
+      {
+        "title": "邓奕辉：养生从\"吃对\"开始，盲目跟风反伤身",
+        "link": "https://moment.rednet.cn/content/646041/56/16076687.html",
+        "summary": "马王堆医书\"药食相融、因人因时因地\"智慧，9种体质辨识+四季时令调养方案，看舌自测+推荐食养方。"
+      },
+      {
+        "title": "年末疲劳心太累？人体开关要常按",
+        "link": "https://health.people.com.cn/GB/n1/2016/0128/c21471-28092393.html",
+        "summary": "北京中医药大学杨勇副教授推荐：拍膻中宽胸理气、揉膀胱经振奋阳气，\"有痛便是穴\"的阿是穴养生法。"
+      },
+      {
+        "title": "山西省中医院李宝玲：养生比养车更上心",
+        "link": "https://www.jksb.com.cn/html/2017/newspaper_0407/114758.html",
+        "summary": "分体质+顺时令九大体质养生法，春季养肝\"三暖\"\"多甘少酸\"原则，葱姜蒜韭菜香椿芽等时令食材推荐。"
+      }
+    ],
+    "psychology": [
+      {
+        "title": "国内10个靠谱心理学网站精选：从情绪到深度阅读",
+        "link": "https://m.toutiao.com/article/7608954950261031433",
+        "summary": "简单心理、KnowYourself、壹心理、中国心理学会、心理学空间网等10个权威平台，按\"零基础入门→深度阅读\"分类。"
+      },
+      {
+        "title": "《长大了就会变好吗》：成年初显期18-25岁的成长指南",
+        "link": "https://m.toutiao.com/article/7636229912407376399",
+        "summary": "KnowYourself主创团队著：打破\"长大自然变好\"童话，亲密关系管理、情绪粒度、原生家庭、自我设障四把钥匙。"
+      },
+      {
+        "title": "心理学中的\"自我分化\"：你分得清感受与思考吗？",
+        "link": "https://www.weibo.com/5355347548/HEOxyokFm",
+        "summary": "高分化者能区分\"我的感受\"与\"我的思考\"，低分化者被情绪裹挟当作决定。识别你是哪种？"
+      },
+      {
+        "title": "健康夜话：情绪需要流淌，而非堆积",
+        "link": "https://www.toutiao.com/article/7608954950261031433",
+        "summary": "中国科学院心理研究所赵科：认知重构、微目标、情绪急救箱、正确归因——情绪疏导四步法。"
+      },
+      {
+        "title": "KnowYourself×澎湃问吧：居家期间心理自助指南",
+        "link": "https://finance.sina.cn/2022-04-13/detail-imcwipii4037242.d.html",
+        "summary": "疑病症、囤积癖、虚无感、运动倦怠、职业倦怠……六种疫情情绪困扰的识别+自助调节方法。"
+      }
+    ],
+    "business": [
+      {
+        "title": "王慧文清华产品课：高手如何做战略决策（15000字干货）",
+        "link": "https://36kr.com/p/1185431133274372",
+        "summary": "美团联合创始人亲述：市场体量判断、规模效应曲线（ABC三类）、马太效应、创新者思维盲区——创业30年方法论。"
+      },
+      {
+        "title": "巨头已在，创业三板斧：破局·入场·持续增长",
+        "link": "https://www.hundun.cn/articles/e472230545229773.html",
+        "summary": "转转联合创始人陈璐：看市场算大盘、深入理解商业模式、冷启动MVP，差异化坚持——完整三阶段方法论。"
+      },
+      {
+        "title": "混沌李善友：8种战略杠杆撬动10倍速增长",
+        "link": "https://m.36kr.com/p/754971066308864",
+        "summary": "资本杠杆、流量杠杆、信任杠杆...李善友《好战略坏战略》：好战略本质是杠杆作用，以小博大。"
+      },
+      {
+        "title": "快手前首席增长官：20年总结6个增长的底层规律",
+        "link": "http://m.zgznzx.sosol.com.cn/zixun/2022/0624/6390.html",
+        "summary": "幂次定律+复利定律+锁定效应+网络效应+系统定律+进化论——增长\"明道\"8字方法论第一步。"
+      },
+      {
+        "title": "混沌学园官网：创新理论+商业创新必修课",
+        "link": "https://www.hundun.cn/",
+        "summary": "李善友创办的颠覆式创新教育平台，汇聚诺奖学者与全球教授，第二曲线+第一性原理+理念世界三大学科。"
+      }
+    ],
+    "civil-law": [
+      {
+        "title": "民法典：体现人民至上 回应时代需求",
+        "link": "https://m.gmw.cn/baijia/2020-07/03/33964724.html",
+        "summary": "居住权、电子合同、离婚冷静期、夫妻共债共签、遗产管理人、高空抛物责任——民生热点全回应。"
+      },
+      {
+        "title": "民法典三问：是什么/内容/施行日期",
+        "link": "https://www.toutiao.com/article/7506725618524979724/",
+        "summary": "《民法典》共7编1260条：总则/物权/合同/人格权/婚姻家庭/继承/侵权责任，2021年1月1日起施行。"
+      },
+      {
+        "title": "民法典来到身边：合同编+人格权编+婚姻家庭编干货",
+        "link": "https://www.163.com/dy/article/FDFITQQA0514QH2U.html",
+        "summary": "知识产权质押、禁止高利放贷、隐私权定义、性骚扰认定、夫妻共同债务、高空抛物——典型条款图解。"
+      },
+      {
+        "title": "民法典包括哪些内容（律师解读）",
+        "link": "https://lvshi.sogou.com/article/detail/DP4SR193X24J.html",
+        "summary": "天津东方律师事务所陈友联：民法典涵盖财产权和人身权两大类民事权利，包括人身权、支配权、请求权、抗辩权等。"
+      },
+      {
+        "title": "民法典宣传月：一起学习《中华人民共和国民法典》",
+        "link": "http://www.cnts.gov.cn/jmtsssfj/gkmlpt/content/2/2857/post_2857803.html",
+        "summary": "《民法典》3周年纪念：弘扬社会主义核心价值观，中国特色社会主义法治体系建设划时代意义大事。"
+      }
+    ],
+    "finance-method": [
+      {
+        "title": "纯分享：亲测靠谱的财经公众号推荐（按新手→进阶分类）",
+        "link": "https://gubaposthk.eastmoney.com/news,301025,1672407124.html",
+        "summary": "简七理财/越女事务所/她理财（入门）→懒人养基/小鱼量化/复来指数（基金）→有知有行/也谈钱/小七滚雪球（进阶）。"
+      },
+      {
+        "title": "理财小白入门：三个核心基础知识+免费学习资源",
+        "link": "https://licai.jiantou8.com/ask/qa_7195001.html",
+        "summary": "\"三笔钱\"分层、R1-R5风险等级、常见理财工具（货币/纯债/权益基金）认知，先建理念再实操。"
+      },
+      {
+        "title": "基金的37条秘诀：从入门到进阶（简七理财推荐）",
+        "link": "https://www.xueqiu.com/5517873136/46411269",
+        "summary": "《解读基金》全书结构整理：投资复利/72法则/指头算法/晨星评级/资产配置——从零到定投实战。"
+      },
+      {
+        "title": "新手玩基金：像学做菜一样慢慢来（厨房比喻）",
+        "link": "https://www.toutiao.com/article/7476696329419342371/",
+        "summary": "货币基金\"保温箱\"、债券基金\"小火慢炖\"、指数基金\"预制菜\"——三步走+避坑提醒，看基金经理如选主厨。"
+      },
+      {
+        "title": "复利懒人操作全指南：选定后减少人为干预",
+        "link": "https://m.toutiao.com/article/7655336071709999650",
+        "summary": "三笔钱分层→定期定额→指数基金+自动再投资→每季度核对一次——复利核心是\"克制的懒惰\"，不是躺平。"
+      }
     ]
   }
 }

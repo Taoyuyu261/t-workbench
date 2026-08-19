@@ -97,11 +97,24 @@
         </span>
         <span class="lbl">今日新闻</span>
       </a>
+      <a href="#" data-view="scratch">
+        <span class="ic">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M8 13h8M8 17h6"/></svg>
+        </span>
+        <span class="lbl">临时记录</span>
+      </a>
       <a href="#" data-view="settings">
         <span class="ic">
           <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
         </span>
-        <span class="lbl">设置·说明</span>
+        <span class="lbl">设置说明</span>
+      </a>
+      <!-- 退出登录（侧栏内置入口，移动端可见） -->
+      <a href="#" id="navLogout" class="nav-exit" title="退出登录">
+        <span class="ic">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="M16 17l5-5-5-5"/><path d="M21 12H9"/></svg>
+        </span>
+        <span class="lbl">退出登录</span>
       </a>
     </nav>
 
@@ -351,6 +364,20 @@
         </div>
         <div class="tabs" id="newsTabs"></div>
         <div id="newsBody" class="news-body"></div>
+      </section>
+
+      <!-- 临时记录 -->
+      <section data-view="scratch" class="view hidden">
+        <h2 class="view-title">临时记录<span class="help" data-help="scratch" tabindex="0" role="button" aria-label="帮助"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M9.5 9a2.5 2.5 0 0 1 4.3-1.4A2.5 2.5 0 0 1 14 12c-.7.6-2 1-2 2.2"/><circle cx="12" cy="17" r=".6" fill="currentColor"/></svg></span></h2>
+        <p class="view-sub">遇到临时事务快速记下来——自动带时间戳，支持删除和清理示例。</p>
+
+        <form id="scratchForm" class="plan-form" style="margin-bottom: 12px;">
+          <textarea id="scratchInput" rows="2" placeholder="比如：明天上午寄顺丰快递 / 9点前打电话给王老师" maxlength="200"></textarea>
+          <button type="submit">＋ 添加记录</button>
+        </form>
+
+        <ul id="scratchList" class="scratch-list"></ul>
+        <button type="button" id="clearScratchBtn" class="cta ghost small" style="margin-top:10px;">清空全部记录</button>
       </section>
 
       <!-- 设置·说明 -->

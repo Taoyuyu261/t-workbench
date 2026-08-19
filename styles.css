@@ -367,6 +367,14 @@ blockquote { margin: 0; font-family: var(--serif); font-size: 18px; line-height:
   .nav a .lbl { display: block; font-size: 10px; line-height: 1.25; text-align: center; }
   .nav a.active .ic { background: var(--clay); color: #fff; }
   .nav a.active .lbl { font-weight: 600; }
+  /* 第十三轮：每行固定 2 字整齐换行 */
+  .nav a .lbl { font-size: 11px; line-height: 1.15; }
+  .nav a.nav-exit .ic { background: #fbeed8; color: #b3563c; }
+  .nav a.nav-exit:hover .ic { background: #f3d5c8; }
+  .nav a.nav-exit:active .ic { background: #b3563c; color: #fff; }
+  /* 新闻 tabs 在窄屏换行 2 个一行 */
+  #newsTabs { flex-wrap: wrap; gap: 6px; }
+  #newsTabs .tab { padding: 5px 11px; font-size: 12px; }
 
   /* 第十一轮：手机端排版紧凑化——一屏看更多 */
   .views { padding: 14px 12px 44px; }
@@ -667,4 +675,30 @@ blockquote { margin: 0; font-family: var(--serif); font-size: 18px; line-height:
 @media (max-width: 720px) {
   .help-pop.fixed { left: 12px !important; right: 12px; width: auto; }
   .help { width: 22px; height: 22px; }
+}
+
+/* ================================================
+   临时记录模块（第十三轮新增）
+   ================================================ */
+.scratch-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 9px; }
+.scratch-item {
+  display: flex; align-items: flex-start; gap: 10px;
+  background: var(--paper-2); border: 1px solid var(--line); border-radius: 14px;
+  padding: 11px 12px; transition: background .2s;
+}
+.scratch-item:hover { background: #fff8ec; }
+.scratch-text { flex: 1; font-size: 14.5px; line-height: 1.6; color: var(--ink); word-break: break-word; white-space: pre-wrap; }
+.scratch-meta { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; flex-shrink: 0; }
+.scratch-time { font-size: 11px; color: var(--muted); white-space: nowrap; }
+.scratch-del {
+  background: transparent; border: 1px solid var(--line); color: var(--muted);
+  width: 24px; height: 24px; border-radius: 6px; font-size: 12px; line-height: 1; padding: 0;
+  cursor: pointer; transition: all .15s;
+}
+.scratch-del:hover { background: #fdeee7; border-color: #e3b8a8; color: #b3563c; }
+
+@media (max-width: 720px) {
+  .scratch-item { padding: 10px; gap: 8px; }
+  .scratch-text { font-size: 13.5px; }
+  #scratchInput { font-size: 16px; }
 }
