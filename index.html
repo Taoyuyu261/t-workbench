@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>T先生的工作台</title>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" href="icon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- ============ 登录页（未登录时全屏遮罩） ============ -->
+<div class="login-gate" id="loginGate">
+  <div class="login-card">
+    <div class="login-logo">
+      <svg viewBox="0 0 32 32" width="52" height="52">
+        <defs>
+          <linearGradient id="leafg2" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#e7c89e"/>
+            <stop offset="100%" stop-color="#c17a4e"/>
+          </linearGradient>
+        </defs>
+        <path d="M16 4 C 9 9, 6 17, 9 26 C 18 24, 24 19, 27 9 C 23 8, 19 8, 16 10 C 17 8, 18 6, 16 4 Z" fill="url(#leafg2)"/>
+        <path d="M11 24 C 15 18, 21 13, 26 10" stroke="#fff" stroke-opacity=".55" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <h1 class="login-title">T先生的工作台</h1>
+    <p class="login-sub">慢慢来 好好做</p>
+    <form id="loginForm" class="login-form" autocomplete="off">
+      <input type="text" id="loginUser" placeholder="用户名" autocomplete="username" />
+      <input type="password" id="loginPass" placeholder="密码" autocomplete="current-password" />
+      <button type="submit" id="loginBtn">进入工作台</button>
+      <p class="login-err" id="loginErr"></p>
+    </form>
+  </div>
+</div>
+
+<div class="app">
+
+  <!-- ============ 左侧导航（默认完整展开）=========== -->
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <span class="logo" aria-hidden="true">
+        <!-- 叶芽小图 -->
+        <svg viewBox="0 0 32 32" width="34" height="34">
+          <defs>
+            <linearGradient id="leafg" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#e7c89e"/>
+              <stop offset="100%" stop-color="#c17a4e"/>
+            </linearGradient>
+          </defs>
+          <path d="M16 4 C 9 9, 6 17, 9 26 C 18 24, 24 19, 27 9 C 23 8, 19 8, 16 10 C 17 8, 18 6, 16 4 Z" fill="url(#leafg)"/>
+          <path d="M11 24 C 15 18, 21 13, 26 10" stroke="#fff" stroke-opacity=".55" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+        </svg>
+      </span>
+      <div class="brand-txt">
+        <h1>T先生的<br/>工作台</h1>
+        <p class="brand-sub">慢慢来 好好做</p>
+      </div>
+    </div>
+
+    <nav class="nav" id="nav">
+      <a href="#" data-view="agenda" class="active">
+        <span class="ic">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></svg>
+        </span>
+        <span class="lbl">计划日程</span>
+      </a>
+      <a href="#" data-view="plans">
+        <span class="ic">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3 7-7"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        </span>
+        <span class="lbl">今日计划</span>
+      </a>
+      <a href="#" data-view="exercise">
+        <span class="ic">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="13" cy="4" r="2"/><path d="M4 22l5-9 4 3 4-7 3 3"/><path d="M9 13l-3 4"/></svg>
+        </span>
+        <span class="lbl">锻炼记录</span>
+      </a>
+      <a href="#" data-view="quotes">
+        <span class="ic">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9c1-3 3-4 6-4v4a3 3 0 0 1-3 3"/><path d="M14 9c1-3 3-4 6-4v4a3 3 0 0 1-3 3"/></svg>
+        </span>
+        <span class="lbl">领导金句</span>
+      </a>
+      <a href="#" data-view="ece">
+        <span class="ic">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7l9-3 9 3-9 4-9-4z"/><path d="M7 9v5c2 1 4 1 5 1s3 0 5-1V9"/><path d="M21 7v6"/></svg>
+        </span>
+        <span class="lbl">幼教推文</span>
+      </a>
+      <a href="#" data-view="news">
+        <span class="ic">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 9h10M7 13h7M7 17h4"/></svg>
+        </span>
+        <span class="lbl">今日新闻</span>
+      </a>
+    </nav>
+
+    <!-- 侧栏底部：图片卡片+账户 -->
+    <div class="side-foot">
+      <div class="mood-card">
+        <svg viewBox="0 0 64 64" width="44" height="44" aria-hidden="true">
+          <circle cx="32" cy="32" r="28" fill="#fff5e2" stroke="#e6dabb"/>
+          <circle cx="22" cy="28" r="3" fill="#c17a4e"/>
+          <circle cx="42" cy="28" r="3" fill="#c17a4e"/>
+          <path d="M22 40c2 3 6 5 10 5s8-2 10-5" stroke="#c17a4e" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <path d="M14 14l4 4M50 14l-4 4" stroke="#d4a157" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <p class="mood-line" id="moodLine">愿你今天，安顿好心情。</p>
+      </div>
+      <div id="authArea" class="auth"></div>
+      <div id="storageMode" class="mode"></div>
+      <!-- 数据备份：防丢 -->
+      <div class="backup-row">
+        <button type="button" id="exportBtn" class="backup-btn" title="把工作台数据下载为 JSON 文件保存">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5"/><path d="M4 21h16"/></svg>
+          导出备份
+        </button>
+        <button type="button" id="importBtn" class="backup-btn" title="从之前导出的 JSON 文件恢复数据">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15V3M7 8l5-5 5 5"/><path d="M4 21h16"/></svg>
+          导入恢复
+        </button>
+        <input type="file" id="importFile" accept=".json,application/json" hidden />
+      </div>
+      <button type="button" id="logoutBtn" class="logout-btn">退出登录</button>
+    </div>
+  </aside>
+
+  <!-- 主内容 -->
+  <main class="main">
+    <header class="topbar">
+      <button id="menuBtn" class="menu" aria-label="菜单">☰</button>
+      <div class="top-title" id="todayLabel"></div>
+      <div class="top-right">
+        <span class="weather-chip" id="weatherChip" title="天气占位">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="13" r="4"/><path d="M9 9a5 5 0 0 1 10-1 4 4 0 0 1 0 8h-1"/></svg>
+          <span id="weatherText">愿君今日好</span>
+        </span>
+      </div>
+    </header>
+
+    <div class="views">
+
+      <!-- 计划日程（替代原来的概览） -->
+      <section data-view="agenda" class="view">
+        <div class="hero">
+          <!-- 右上角手绘风装饰小图：太阳与山丘 -->
+          <svg class="hero-art" viewBox="0 0 140 110" aria-hidden="true">
+            <circle cx="104" cy="26" r="15" fill="#f4c877" opacity=".9"/>
+            <g stroke="#d4a157" stroke-width="2.4" stroke-linecap="round">
+              <path d="M104 2v6M104 44v6M80 26h6M122 26h6M87 9l4 4M121 39l4 4M121 9l-4 4M87 43l4-4"/>
+            </g>
+            <path d="M6 96 C 28 62, 44 56, 58 74 C 68 86, 82 88, 92 78 L 96 96 Z" fill="#cfe0b2" opacity=".85"/>
+            <path d="M40 96 C 56 68, 74 66, 86 84 C 94 94, 104 92, 112 86 L 116 96 Z" fill="#a9c489" opacity=".8"/>
+            <path d="M4 98 H 136" stroke="#e6dabb" stroke-width="2.5" stroke-linecap="round"/>
+          </svg>
+          <p class="hello" id="greeting"></p>
+          <h2 class="hero-title" id="agendaHero">把近几天的事，按节奏看一眼。</h2>
+          <p class="hero-date" id="todayBig"></p>
+        </div>
+
+        <!-- 进度小卡 -->
+        <div class="kpi-row">
+          <div class="kpi">
+            <span class="kpi-ic" style="background:#fff5e2;color:#c17a4e">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3 7-7"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+            </span>
+            <div class="kpi-txt">
+              <span class="kpi-label">今日完成</span>
+              <span class="kpi-val" id="kpiDone">0/0</span>
+            </div>
+          </div>
+          <div class="kpi">
+            <span class="kpi-ic" style="background:#eaf2dc;color:#7a8e55">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12c2-4 6-7 9-7s7 3 9 7"/><path d="M3 12c2 4 6 7 9 7s7-3 9-7"/></svg>
+            </span>
+            <div class="kpi-txt">
+              <span class="kpi-label">本月已完成</span>
+              <span class="kpi-val" id="kpiMonth">0 件</span>
+            </div>
+          </div>
+          <div class="kpi">
+            <span class="kpi-ic" style="background:#fdf0e3;color:#a9702a">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></svg>
+            </span>
+            <div class="kpi-txt">
+              <span class="kpi-label">未来一周</span>
+              <span class="kpi-val" id="kpiWeek">0 件</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 视图切换：日 / 周 / 月 -->
+        <div class="range-tabs">
+          <button data-range="today" class="rtab active">今天</button>
+          <button data-range="week" class="rtab">近一周</button>
+          <button data-range="month" class="rtab">近一月</button>
+          <button class="rtab js-add">＋ 添加事务</button>
+        </div>
+
+        <!-- 月历条（小图风格） -->
+        <div class="cal-strip" id="calStrip"></div>
+
+        <!-- 事务列表 -->
+        <div class="card agenda-card">
+          <p class="card-label" id="agendaLabel">今日待办</p>
+          <ul id="agendaList" class="agenda-list"></ul>
+          <form id="agendaForm" class="agenda-form">
+            <input type="date" id="agDate" aria-label="日期"/>
+            <input type="text" id="agText" placeholder="比如：园务例会 / 教研评议 / 接待家长……" />
+            <button type="submit">添加</button>
+          </form>
+        </div>
+
+        <div class="home-cta">
+          <button class="cta" data-go="plans">去今日计划 →</button>
+          <button class="cta ghost" data-go="news">看看今天的新闻</button>
+        </div>
+      </section>
+
+      <!-- 今日计划 -->
+      <section data-view="plans" class="view hidden">
+        <h2 class="view-title">今日计划</h2>
+        <p class="view-sub">把今天的事，一件件安顿好；完成后，轻轻划掉。</p>
+
+        <form id="planForm" class="plan-form">
+          <div class="time-chips" id="timeChips">
+            <button type="button" data-t="08:00">08:00</button>
+            <button type="button" data-t="09:00">09:00</button>
+            <button type="button" data-t="10:00">10:00</button>
+            <button type="button" data-t="11:00">11:00</button>
+            <button type="button" data-t="14:00">14:00</button>
+            <button type="button" data-t="15:00">15:00</button>
+            <button type="button" data-t="16:00">16:00</button>
+            <button type="button" data-t="17:00">17:00</button>
+            <button type="button" data-t="20:00">20:00</button>
+            <input type="time" id="planTime" aria-label="自定义时间"/>
+          </div>
+          <input type="text" id="planInput" placeholder="今天想完成什么？例如：审阅班级观察记录"/>
+          <button type="submit">＋ 添加</button>
+        </form>
+
+        <ul id="planList" class="plan-list"></ul>
+
+        <div class="legend">
+          <span><span class="dot" style="background:var(--clay)"></span>未完成</span>
+          <span><span class="dot done"></span>已完成（再点一次可撤销）</span>
+        </div>
+      </section>
+
+      <!-- 锻炼记录（4板块） -->
+      <section data-view="exercise" class="view hidden">
+        <h2 class="view-title">锻炼记录</h2>
+        <p class="view-sub">把身体今天的模样，留一份云端。</p>
+
+        <div class="ex-grid">
+          <!-- 1. 步数 -->
+          <div class="card ex-card">
+            <div class="ex-head">
+              <span class="ex-ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 21c1-3 2-6 2-9"/><path d="M17 21c-1-3-2-6-2-9"/><path d="M7 12c2-2 8-2 10 0"/></svg></span>
+              <h3>步数</h3>
+            </div>
+            <div class="ex-body">
+              <div class="step-circle" id="stepRing">
+                <span id="stepVal">0</span><small>步</small>
+              </div>
+              <input type="number" id="exSteps" placeholder="输入今日步数（如 8000）" />
+            </div>
+          </div>
+
+          <!-- 2. 运动情况（项目+时间+卡路里 多行） -->
+          <div class="card ex-card ex-sport">
+            <div class="ex-head">
+              <span class="ex-ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="13" cy="4" r="2"/><path d="M4 22l5-9 4 3 4-7 3 3"/></svg></span>
+              <h3>运动情况</h3>
+            </div>
+            <div class="ex-body">
+              <div id="sportRows" class="sport-rows"></div>
+              <button type="button" id="addSportBtn" class="cta ghost small">＋ 添加一项运动</button>
+              <template id="sportTpl">
+                <div class="sport-row">
+                  <input type="text" class="sp-name" placeholder="项目（如 跑步/瑜伽）"/>
+                  <input type="number" class="sp-min" placeholder="分钟"/>
+                  <input type="number" class="sp-kcal" placeholder="千卡"/>
+                  <button type="button" class="sp-del" title="删除">✕</button>
+                </div>
+              </template>
+            </div>
+          </div>
+
+          <!-- 3. 身体感受 -->
+          <div class="card ex-card ex-feel">
+            <div class="ex-head">
+              <span class="ex-ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg></span>
+              <h3>身体感受</h3>
+            </div>
+            <textarea id="exFeel" rows="4" placeholder="比如：早起肩颈有点僵，午餐后散步30分钟觉得松快了……"></textarea>
+          </div>
+
+          <!-- 4. 明日计划 -->
+          <div class="card ex-card ex-tomorrow">
+            <div class="ex-head">
+              <span class="ex-ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6M12 22a8 8 0 0 0 8-8M12 22a8 8 0 0 1-8-8M12 22v-6"/></svg></span>
+              <h3>明日运动计划</h3>
+            </div>
+            <textarea id="exTomorrow" rows="3" placeholder="例如：早起快走30分钟 + 拉伸；晚间若不下雨可户外跑3公里"></textarea>
+            <button id="saveExerciseBtn" type="button" class="cta">保存今日记录</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 领导金句 -->
+      <section data-view="quotes" class="view hidden">
+        <div class="news-head">
+          <h2 class="view-title">领导金句</h2>
+          <button id="quoteShuffle" class="cta ghost small">换一批</button>
+        </div>
+        <p class="view-sub">每天从全网搜索精选入库，言简意赅、各行各业通用；不合口味就换一批。</p>
+        <div id="quoteList" class="quote-list"></div>
+      </section>
+
+      <!-- 幼教推文 -->
+      <section data-view="ece" class="view hidden">
+        <h2 class="view-title">幼教推文</h2>
+        <p class="view-sub">每日 5 条围绕学前教育（含 AI、融合教育、一日生活），公众号与小红书视角并取。</p>
+        <div class="search-box">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+          <input type="search" id="eceSearch" placeholder="搜你想找的：AI / 融合 / 一日生活…" />
+        </div>
+        <div id="eceList" class="ece-list"></div>
+      </section>
+
+      <!-- 今日新闻 -->
+      <section data-view="news" class="view hidden">
+        <div class="news-head">
+          <h2 class="view-title">今日新闻</h2>
+          <button id="newsRefresh" class="cta ghost small">刷新</button>
+        </div>
+        <div class="search-box">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+          <input type="search" id="newsSearch" placeholder="搜你想找的新闻关键词…" />
+        </div>
+        <div class="tabs" id="newsTabs"></div>
+        <div id="newsBody" class="news-body"></div>
+      </section>
+    </div>
+  </main>
+
+  <div class="backdrop" id="backdrop"></div>
+</div>
+
+<!-- 轻提示（替代 alert） -->
+<div class="toast-wrap" id="toastWrap" aria-live="polite"></div>
+
+<script src="config.js"></script>
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

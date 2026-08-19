@@ -1,0 +1,12 @@
+{
+  "name": "T先生的工作台",
+  "short_name": "T先生工作台",
+  "description": "一本暖色调的治愈手帐：计划、锻炼、金句、幼教推文、新闻，一并安顿。",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#f7efdc",
+  "theme_color": "#c17a4e",
+  "icons": [
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}
