@@ -114,6 +114,8 @@ body {
 
 /* ===== Hero ===== */
 .hero { padding: 4px 6px 0; }
+/* 修复：文字被右上角装饰图遮挡——文字设为定位元素（DOM 在 hero-art 之后→绘制在上层） */
+.hero .hello, .hero .hero-title, .hero .hero-date { position: relative; z-index: 1; }
 .hello { margin: 0; font-size: 14px; color: var(--muted); letter-spacing: .04em; }
 .hero-title { font-family: var(--serif); font-size: 26px; line-height: 1.55; margin: 6px 0 8px; color: var(--ink); max-width: 22em; }
 .hero-date { margin: 0; font-size: 13px; color: var(--muted); }
@@ -344,32 +346,59 @@ blockquote { margin: 0; font-family: var(--serif); font-size: 18px; line-height:
   .ex-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 720px) {
-  /* 第十轮：学习参考图比例——侧栏改窄图标列（约80px），主内容占大 */
+  /* 第十轮：学习参考图比例——侧栏改窄图标列（约84px），主内容占大 */
   .sidebar {
-    width: 84px; padding: 18px 6px;
+    width: 88px; padding: 14px 4px;
     align-items: center;
   }
   .brand, .mood-card, .side-foot, .mode, .auth { display: none; }
-  .nav { width: 100%; gap: 6px; }
+  .nav { width: 100%; gap: 4px; }
+  /* 第十一轮：图标在上、文字在下（参考图样式） */
   .nav a {
-    padding: 10px 0; justify-content: center; border-radius: 14px;
+    flex-direction: column; gap: 5px;
+    padding: 8px 2px; justify-content: center; border-radius: 14px;
     box-shadow: none;
   }
   .nav a .ic {
-    width: 52px; height: 52px;
+    width: 46px; height: 46px;
     box-shadow: var(--shadow-soft);
   }
-  .nav a .ic svg { width: 22px; height: 22px; }
-  .nav a .lbl { display: none; } /* 移动端只显示图标，文字隐藏 */
+  .nav a .ic svg { width: 20px; height: 20px; }
+  .nav a .lbl { display: block; font-size: 10px; line-height: 1.25; text-align: center; }
   .nav a.active .ic { background: var(--clay); color: #fff; }
+  .nav a.active .lbl { font-weight: 600; }
 
-  .views { padding: 22px 18px 50px; }
-  .hero-title { font-size: 22px; }
-  .topbar { padding: 13px 18px; }
+  /* 第十一轮：手机端排版紧凑化——一屏看更多 */
+  .views { padding: 14px 12px 44px; }
+  .hero { padding: 0 0 0; }
+  .hero-title { font-size: 17px; line-height: 1.45; padding-right: 58px; }
+  .hello { font-size: 12.5px; }
+  .hero-date { font-size: 12px; }
+  .hero-art { width: 62px; top: -2px; }
+  .topbar { padding: 11px 12px; }
+  .top-title { font-size: 12.5px; }
+
+  /* KPI 三列横排紧凑版（原来是竖排三大卡，太占空间） */
+  .kpi-row { grid-template-columns: repeat(3, 1fr); gap: 6px; }
+  .kpi {
+    flex-direction: column; text-align: center;
+    padding: 9px 4px; gap: 3px; border-radius: 12px;
+  }
+  .kpi-ic { width: 26px; height: 26px; border-radius: 8px; }
+  .kpi-ic svg { width: 13px; height: 13px; }
+  .kpi-label { font-size: 10px; }
+  .kpi-val { font-size: 15px; }
+
+  .range-tabs { gap: 6px; }
+  .rtab { padding: 6px 12px; font-size: 12.5px; }
+  .cal-day { flex: 0 0 44px; padding: 6px 4px; border-radius: 12px; }
+  .cal-day .n { font-size: 15px; }
+  .agenda-card { padding: 14px 12px; }
+  .agenda-row { padding: 9px 10px; font-size: 13px; }
+  .home-cta { gap: 8px; }
+  .cta { font-size: 13.5px; padding: 9px 14px; }
 }
 @media (max-width: 460px) {
-  .kpi-row { grid-template-columns: 1fr; }
-  .hero-title { font-size: 20px; }
   .sport-row { grid-template-columns: 1fr 1fr 30px; }
   .sport-row .sp-name { grid-column: 1 / -1; }
 }
@@ -565,13 +594,10 @@ blockquote { margin: 0; font-family: var(--serif); font-size: 18px; line-height:
   .backup-btn { padding: 11px 8px; }
 }
 @media (max-width: 400px) {
-  /* iPhone 15 Pro（393pt）及更窄 */
-  .views { padding: 18px 14px 46px; }
-  .topbar { padding: 12px 14px; }
-  .hero-title { font-size: 19px; }
-  .hero-art { width: 96px; }
-  .view-title { font-size: 21px; }
-  .cal-day { flex: 0 0 46px; }
+  /* iPhone 15 Pro（393pt）及更窄——720 断点已做紧凑化，此处仅微调 */
+  .hero-title { font-size: 16px; }
+  .hero-art { width: 56px; }
+  .view-title { font-size: 19px; }
 }
 
 /* ================================================
