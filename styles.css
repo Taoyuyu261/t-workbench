@@ -702,3 +702,13 @@ blockquote { margin: 0; font-family: var(--serif); font-size: 18px; line-height:
   .scratch-text { font-size: 13.5px; }
   #scratchInput { font-size: 16px; }
 }
+
+/* ================================================
+   第十四轮：导航文字 PC 一行 / 移动端每 2 字一行（span.pair 方案）
+   ================================================ */
+.nav a .lbl .pair { display: inline; }
+#logoutBtn { display: none; } /* 侧栏底部退出按钮隐藏（与导航栏 navLogout 重复） */
+
+@media (max-width: 720px) {
+  .nav a .lbl .pair { display: block; } /* 移动端每 2 字一行 */
+}

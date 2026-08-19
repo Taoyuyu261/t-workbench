@@ -711,7 +711,7 @@
     $("weatherText").textContent = ["愿君今日好", "微风不燥", "宜专注"][dayIndex() % 3];
   }
 
-  // ---------- 新闻窗口（5 板块） ----------
+  // ---------- 新闻窗口（10 板块：SECTION_NAMES 全量，feeds.json 优先，RSS 兜底） ----------
   const SECTION_NAMES = {
     ai: "AI", finance: "金融", domestic: "国内", world: "国际", health: "养生",
     tcm: "中医", psychology: "心理学", business: "商业思维", "civil-law": "民法常识", "finance-method": "理财方法"
@@ -719,14 +719,17 @@
   async function loadNews() {
     const tabs = $("newsTabs"); tabs.innerHTML = "";
     const body = $("newsBody"); body.innerHTML = '<p class="muted">加载中…</p>';
-    const sections = CFG.FEEDS || {};
+    const rssFeeds = CFG.FEEDS || {};
     let first = true;
 
     const f = feedsCache || (await loadFeeds());
     feedsCache = f;
     const feedsSections = (f && f.sections) || {};
 
-    for (const [sec, urls] of Object.entries(sections)) {
+    // 第十四轮修复：遍历全部 10 个板块（SECTION_NAMES 优先），不再只遍历 config.js 的 5 个 RSS key
+    const allSections = [...new Set([...Object.keys(SECTION_NAMES), ...Object.keys(rssFeeds), ...Object.keys(feedsSections)])];
+    for (const sec of allSections) {
+      const urls = rssFeeds[sec] || [];
       const btn = document.createElement("button");
       btn.className = "tab" + (first ? " active" : "");
       btn.textContent = SECTION_NAMES[sec] || sec;
@@ -854,13 +857,15 @@
   };
 
   // ---------- 导航 / 视图 ----------
-  // nav 标签拆字：每 2 字一行（"今日新闻" → "今日<br>新闻"），解决窄侧栏文字拥挤
+  // nav 标签拆字：每 2 字包一个 span.pair —— PC 端 inline 一行显示，移动端 block 每 2 字一行（CSS 控制，响应式天然生效）
   document.querySelectorAll(".nav a .lbl").forEach((el) => {
     const raw = (el.textContent || "").trim();
     if (!raw) return;
-    // 已是 HTML（如临时记录视图里的）则跳过
-    if (el.innerHTML.includes("<br>")) return;
-    el.innerHTML = raw.split("").map((c, i) => i > 0 && i % 2 === 0 ? "<br>" + c : c).join("");
+    if (el.innerHTML.includes("pair")) return; // 已处理过则跳过
+    el.innerHTML = raw.split("").reduce((acc, c, i) => {
+      if (i > 0 && i % 2 === 0) acc += '</span><span class="pair">';
+      return acc + c;
+    }, '<span class="pair">') + "</span>";
   });
 
   function showView(name) {
