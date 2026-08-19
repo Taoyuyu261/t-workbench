@@ -366,6 +366,23 @@
         </div>
 
         <div class="card">
+          <p class="card-label">数据备份与恢复</p>
+          <p class="guide-p">移动端侧栏收纳后，导出/导入移到这里。建议每周导出一次备份，存微信收藏或网盘，换设备时用「导入恢复」一键还原。</p>
+          <div class="backup-row">
+            <button type="button" id="exportBtn2" class="backup-btn" title="把工作台数据下载为 JSON 文件保存">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5"/><path d="M4 21h16"/></svg>
+              导出备份
+            </button>
+            <button type="button" id="importBtn2" class="backup-btn" title="从之前导出的 JSON 文件恢复数据">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15V3M7 8l5-5 5 5"/><path d="M4 21h16"/></svg>
+              导入恢复
+            </button>
+            <input type="file" id="importFile2" accept=".json,application/json" hidden />
+          </div>
+          <button type="button" id="logoutBtn2" class="logout-btn" style="margin-top:8px;">退出登录</button>
+        </div>
+
+        <div class="card">
           <p class="card-label">更新日志</p>
           <div id="changelog"></div>
         </div>

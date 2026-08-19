@@ -1,6 +1,6 @@
 // Service Worker：网络优先（保证每次拿到最新版），离线时回退缓存。
 // 版本号每次发版递增，activate 时清掉旧缓存。
-const CACHE = "wb-v6";
+const CACHE = "wb-v7";
 const SHELL = ["index.html", "styles.css", "app.js", "config.js", "data.js", "feeds.json", "manifest.webmanifest", "icon.svg"];
 
 self.addEventListener("install", (e) => {

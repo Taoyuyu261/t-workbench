@@ -344,7 +344,25 @@ blockquote { margin: 0; font-family: var(--serif); font-size: 18px; line-height:
   .ex-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 720px) {
-  /* 第九轮改动：侧栏在所有屏幕下都常驻左侧，与桌面端一致；不再变成抽屉 */
+  /* 第十轮：学习参考图比例——侧栏改窄图标列（约80px），主内容占大 */
+  .sidebar {
+    width: 84px; padding: 18px 6px;
+    align-items: center;
+  }
+  .brand, .mood-card, .side-foot, .mode, .auth { display: none; }
+  .nav { width: 100%; gap: 6px; }
+  .nav a {
+    padding: 10px 0; justify-content: center; border-radius: 14px;
+    box-shadow: none;
+  }
+  .nav a .ic {
+    width: 52px; height: 52px;
+    box-shadow: var(--shadow-soft);
+  }
+  .nav a .ic svg { width: 22px; height: 22px; }
+  .nav a .lbl { display: none; } /* 移动端只显示图标，文字隐藏 */
+  .nav a.active .ic { background: var(--clay); color: #fff; }
+
   .views { padding: 22px 18px 50px; }
   .hero-title { font-size: 22px; }
   .topbar { padding: 13px 18px; }

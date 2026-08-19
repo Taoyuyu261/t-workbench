@@ -256,6 +256,12 @@
     toast("备份已下载，请妥善保存");
   };
   $("importBtn").onclick = () => $("importFile").click();
+  // 设置页里的备份副本（移动端用，侧栏被收纳后改在这里）
+  $("exportBtn2").onclick = $("exportBtn").onclick;
+  $("importBtn2").onclick = () => $("importFile2").click();
+  $("importFile2").onchange = $("importFile").onchange;
+  // logout 后续可能被 Supabase 分支覆盖，所以用函数包装始终走最新处理
+  $("logoutBtn2").onclick = () => $("logoutBtn").click();
   $("importFile").onchange = (e) => {
     const f = e.target.files[0];
     if (!f) return;
